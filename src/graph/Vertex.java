@@ -1,5 +1,5 @@
 package graph;
-
+//membuat obyek simpul atau vertex
 public class Vertex {
 
     private char label;
