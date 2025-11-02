@@ -1,13 +1,17 @@
 package graph;
-//membuat obyek simpul atau vertex
+// Membuat obyek vertex(node)
+
 public class Vertex {
 
+    // Inisialisasi variable label untuk memberikan nama vertex
     private char label;
 
+    // Constructor 
     public Vertex(char label) {
         this.label = label;
     }
 
+    // Getter dan Setter
     public char getLabel() {
         return label;
     }
