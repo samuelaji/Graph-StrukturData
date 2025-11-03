@@ -1,6 +1,6 @@
 package graph;
 // Membuat obyek vertex(node)
-//dimas cia
+
 public class Vertex {
 
     // Inisialisasi variable label untuk memberikan nama vertex
