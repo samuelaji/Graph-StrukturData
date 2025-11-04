@@ -14,16 +14,19 @@ public class main {
         graph.addVertex('D');
 
         /*
-        Menambahkan adjacency
-        dari label pertama ke label ke dua dan dengan bobotnya
+        * Menambahkan adjacency
+        * Dari label pertama ke label ke dua dan dengan bobotnya
         */
-        graph.addEdge('A', 'H', 100);
-        graph.addEdge('A', 'W', 800);
-        graph.addEdge('H', 'W', 750);
-        graph.addEdge('W', 'C', 400);
-        graph.addEdge('D', 'C', 370);
+        graph.addEdge('A', 'H', 12);
+        graph.addEdge('A', 'W', 12);
+        graph.addEdge('H', 'W', 12);
+        graph.addEdge('W', 'C', 12);
+        graph.addEdge('D', 'C', 1);
 
         // Menampilkan Graph dalam bentuk tabel matriks 
         graph.printAdjacencyMatrix();
+        
+        System.out.println("DFS Traversal :");
+        graph.dfs();
     }
 }

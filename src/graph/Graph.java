@@ -1,5 +1,7 @@
 package graph;
 
+import java.util.Stack;
+
 // Membangun graph
 public class Graph {
 
@@ -23,9 +25,9 @@ public class Graph {
         this.countVertex = 0;
 
         /*
-        Nested loop untuk memberikan nilai default pada adjacency (edge)
-        Nilai 0 untuk adjacency vertex yang terhubung dengan diri sendiri dalam martriks
-        Nilai -1 untuk adjacency vertex yang tidak terhubung dengan vertex lain
+        * Nested loop untuk memberikan nilai default pada adjacency (edge)
+        * Nilai 0 untuk adjacency vertex yang terhubung dengan diri sendiri dalam martriks
+        * Nilai -1 untuk adjacency vertex yang tidak terhubung dengan vertex lain
          */
         // Pindah antar baris
         for (int i = 0; i < maxVertex; i++) {
@@ -50,9 +52,9 @@ public class Graph {
     }
 
     /*
-    Menambahkan adjacency (edge), menghubungkan antara 2 simpul dan memberikan bobot pada adjacency vertex
-    Menggunakan indeks dalam parameternya 
-    Menentukan bobot adjacency (int c)
+    * Menambahkan adjacency (edge), menghubungkan antara 2 simpul dan memberikan bobot pada adjacency vertex
+    * Menggunakan indeks dalam parameternya 
+    * Menentukan bobot adjacency (int c)
      */
     public void addEdge(int a, int b, int c) {
         // vertex undirected
@@ -78,10 +80,10 @@ public class Graph {
     }
 
     /*
-    Menambahkan adjacency (edge), menghubungkan antara 2 simpul dan memberikan bobot pada adjacency vertex
-    Menggunakan nilai label vertex dalam parameternya (lebih mudah dimengerti)
-    Menggunakan method indexVertex untuk menentukan indeks dari label pada parameter yang ditentukan 
-    Menentukan bobot adjacency (int c)
+    * Menambahkan adjacency (edge), menghubungkan antara 2 simpul dan memberikan bobot pada adjacency vertex
+    * Menggunakan nilai label vertex dalam parameternya (lebih mudah dimengerti)
+    * Menggunakan method indexVertex untuk menentukan indeks dari label pada parameter yang ditentukan 
+    * Menentukan bobot adjacency (int c)
      */
     public void addEdge(char a, char b, int c) {
         addEdge(indexVertex(a), indexVertex(b), c);
@@ -107,5 +109,35 @@ public class Graph {
             System.out.println();
             System.out.println();
         }
+    }
+
+    // Inisialisasi titik awal 
+    public void dfs() {
+        int seed = 0;
+        dfs(seed);
+    }
+
+    // Telusur
+    public void dfs(int seed) {
+        // Inisialisasi Stack
+        Stack<Integer> stack = new Stack();
+        // Memasukkan vertex awal ke dalam stack
+        stack.push(seed);
+
+        // Dilakukan selama stacknya tidak kosong
+        while (!stack.isEmpty()) {
+            // Menghapus stack x
+            int x = stack.pop();
+            if (vertexList[x].flagVisited == false) {
+                System.out.print(vertexList[x].getLabel() + " ");
+                vertexList[x].flagVisited = true;
+                for (int i = vertexList.length - 1; i >= 0; i--) {
+                    if (adjacencyMatrix[x][i] >= 1 && vertexList[i].flagVisited == false) {
+                        stack.push(i);
+                    }
+                } 
+            }
+        }
+        System.out.println();
     }
 }

@@ -5,13 +5,14 @@ public class Vertex {
 
     // Inisialisasi variable label untuk memberikan nama vertex
     private char label;
+    boolean flagVisited;
 
-    // Constructor 
     public Vertex(char label) {
         this.label = label;
+        //inisialisasi awal belum dikunjungi
+        this.flagVisited = false;
     }
 
-    // Getter dan Setter
     public char getLabel() {
         return label;
     }
@@ -19,5 +20,4 @@ public class Vertex {
     public void setLabel(char label) {
         this.label = label;
     }
-
 }
