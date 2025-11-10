@@ -1,6 +1,6 @@
 package graph;
 
-public class main {
+public class Ilustrasi1 {
 
     public static void main(String[] args) {
         // Membuat obyek Graph
@@ -8,20 +8,22 @@ public class main {
         
         // Menambahkan vertex dengan labelnya
         graph.addVertex('A');
-        graph.addVertex('H');
-        graph.addVertex('W');
+        graph.addVertex('B');
         graph.addVertex('C');
         graph.addVertex('D');
+        graph.addVertex('E');
 
         /*
         * Menambahkan adjacency
         * Dari label pertama ke label ke dua dan dengan bobotnya
         */
-        graph.addEdge('A', 'H', 12);
-        graph.addEdge('A', 'W', 12);
-        graph.addEdge('H', 'W', 12);
-        graph.addEdge('W', 'C', 12);
-        graph.addEdge('D', 'C', 1);
+        graph.addUndirectedEdge('A', 'B', 1);
+        graph.addUndirectedEdge('A', 'D', 1);
+        graph.addUndirectedEdge('A', 'C', 1);
+        graph.addUndirectedEdge('A', 'E', 1);
+        graph.addUndirectedEdge('B', 'C', 1);
+        graph.addUndirectedEdge('C', 'D', 1);
+        graph.addUndirectedEdge('C', 'E', 1);
 
         // Menampilkan Graph dalam bentuk tabel matriks 
         graph.printAdjacencyMatrix();

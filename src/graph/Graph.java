@@ -51,15 +51,23 @@ public class Graph {
         }
     }
 
-    /*
-    * Menambahkan adjacency (edge), menghubungkan antara 2 simpul dan memberikan bobot pada adjacency vertex
-    * Menggunakan indeks dalam parameternya 
-    * Menentukan bobot adjacency (int c)
-     */
-    public void addEdge(int a, int b, int c) {
+    public void addUndirectedEdge(int a, int b, int c) {
         // vertex undirected
         this.adjacencyMatrix[a][b] = c;
         this.adjacencyMatrix[b][a] = c;
+    }
+
+    public void addUndirectedEdge(char a, char b, int c) {
+        addUndirectedEdge(indexVertex(a), indexVertex(b), c);
+    }
+
+    public void addDirectedEdge(int a, int b, int c) {
+        // vertex directed
+        this.adjacencyMatrix[a][b] = c;
+    }
+
+    public void addDirectedEdge(char a, char b, int c) {
+        addDirectedEdge(indexVertex(a), indexVertex(b), c);
     }
 
     // Menentukan indeks vertex dari labelnya
@@ -77,16 +85,6 @@ public class Graph {
         }
         // Mengembalikan nilai -1 untuk tidak ditemukan
         return -1;
-    }
-
-    /*
-    * Menambahkan adjacency (edge), menghubungkan antara 2 simpul dan memberikan bobot pada adjacency vertex
-    * Menggunakan nilai label vertex dalam parameternya (lebih mudah dimengerti)
-    * Menggunakan method indexVertex untuk menentukan indeks dari label pada parameter yang ditentukan 
-    * Menentukan bobot adjacency (int c)
-     */
-    public void addEdge(char a, char b, int c) {
-        addEdge(indexVertex(a), indexVertex(b), c);
     }
 
     //Mencetak / menampilkan graph dalam bentuk tabel matriks
@@ -135,7 +133,7 @@ public class Graph {
                     if (adjacencyMatrix[x][i] >= 1 && vertexList[i].flagVisited == false) {
                         stack.push(i);
                     }
-                } 
+                }
             }
         }
         System.out.println();
