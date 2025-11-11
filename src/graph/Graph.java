@@ -14,6 +14,7 @@ public class Graph {
     private final int[][] adjacencyMatrix;
     // Penghitung vertex
     private int countVertex;
+    
 
     // Constructor
     public Graph() {
@@ -133,6 +134,31 @@ public class Graph {
                     if (adjacencyMatrix[x][i] >= 1 && vertexList[i].flagVisited == false) {
                         stack.push(i);
                     }
+                }
+            }
+        }
+        System.out.println();
+    }
+
+    public void bfs() {
+        int seed = 0;
+        bfs(seed);
+    }
+
+    public void bfs(int seed) {
+        Queue antrian = new Queue();
+        antrian.add(seed);
+
+        while (!antrian.isEmpty()) {
+            int x = antrian.remove();
+            if (vertexList[x].flagVisited == false) {
+                System.out.print(vertexList[x].getLabel() + " ");
+                vertexList[x].flagVisited = true;
+                for (int i = 0; i < vertexList.length - 1; i++) {
+                    if (adjacencyMatrix[x][i] >= 1 && vertexList[i].flagVisited == false) {
+                        antrian.add(i);
+                    }
+
                 }
             }
         }
