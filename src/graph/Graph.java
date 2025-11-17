@@ -7,7 +7,7 @@ public class Graph {
 
     // Inisialisasi
     //Jumlah maksimal vertex(Kelemahan : tidak fleksible dikarenakan menggunakan array 1 dimensi)
-    public final int maxVertex = 10;
+    private final int maxVertex = 10;
     // Menyimpan kumpulan vertex dalam array
     private final Vertex[] vertexList;
     // Menghubungkan antar node (adjacency)
@@ -140,13 +140,13 @@ public class Graph {
         System.out.println();
     }
 
-    public void bfs() {
+public void bfs() {
         int seed = 0;
         bfs(seed);
     }
 
     public void bfs(int seed) {
-        Queue antrian = new Queue();
+        Antrian<Integer> antrian = new Antrian<>();
         antrian.add(seed);
 
         while (!antrian.isEmpty()) {
@@ -154,11 +154,10 @@ public class Graph {
             if (vertexList[x].flagVisited == false) {
                 System.out.print(vertexList[x].getLabel() + " ");
                 vertexList[x].flagVisited = true;
-                for (int i = 0; i < vertexList.length - 1; i++) {
+                for (int i = 0; i < vertexList.length; i++) {
                     if (adjacencyMatrix[x][i] >= 1 && vertexList[i].flagVisited == false) {
                         antrian.add(i);
                     }
-
                 }
             }
         }

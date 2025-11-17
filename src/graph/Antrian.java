@@ -2,27 +2,27 @@ package graph;
 
 import java.util.LinkedList;
 
-public class Queue {
+public class Antrian<E> {
 
-    private LinkedList<Integer> antrian;
+    private LinkedList<E> antrian;
 
-    public Queue() {
-        this.antrian = new LinkedList<>();
+    public Antrian() {
+        this.antrian = new LinkedList<E>();
     }
 
-    public void add(Integer e) {
+    public void add(E e) {
         Enqueue(e);
     }
 
-    public Integer remove() {
+    public E remove() {
         return Dequeue();
     }
 
-    public void Enqueue(Integer e) {
+    public void Enqueue(E e) {
         antrian.addLast(e);
     }
 
-    public Integer Dequeue() {
+    public E Dequeue() {
         return antrian.removeFirst();
     }
 

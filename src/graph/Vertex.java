@@ -1,7 +1,7 @@
 package graph;
 // Membuat obyek vertex(node)
 
-public class Vertex {
+public class Vertex  {
 
     // Inisialisasi variable label untuk memberikan nama vertex
     private char label;
